@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<h1>Bakery Inventory Management System</h1>
+<table>
+    <tr>
+        <th>Item Name</th>
+        <th>Item Number</th>
+        <th>Quantity</th>
+        <th>Actions</th>
+    </tr>
+    <!-- The rows will be inserted here by JavaScript -->
+</table>
+<script src="script.js"></script>
+<script>
+    var inventory = [
+    {name: 'ALMOND PUCK', id: 1480082},
+    {name: 'APPLE PIE', id: 1406694},
+    {name: 'ARTISAN BUN', id: 1221066},
+    {name: 'BISCONIE', id: 1390599},
+    {name: 'BLUEBERRIES', id: 51227},
+    {name: 'PARM-CHEESE BAGEL', id: 1323454},
+    {name: 'CHERRY CHEESE DANISH', id: 1673395},
+    {name: 'CHOCOLATE CHUNK', id: 18763},
+    {name: 'COUNTRY FRENCH', id: 1408743},
+    {name: 'CRANBERRY WALNUT', id: 1362365},
+    {name: 'CRUMBLE', id: 1410282},
+    {name: 'CROISSANTS', id: 1176759},
+    {name: 'DANISH', id: 1474110},
+    {name: 'KS BAQUETTES', id: 839736},
+    {name: 'MACADAMIA NUT', id: 18764},
+    {name: 'MINI CHOCOLATE CHIP', id: 1323449},
+    {name: 'OATMEAL', id: 21205},
+    {name: 'EVERYTHING BAGEL', id: 1323456},
+    {name: 'PLAIN BAGEL', id: 1323441},
+    {name: 'RAISIN BAGEL', id: 1323457},
+    {name: 'RASPBERRIES', id: 1657630},
+    {name: 'TRES LECHES', id: 1368354},
+    {name: 'TUXEDO', id: 233909},
+    {name: 'WHIPPED TOPPING', id: 391994},
+    {name: 'OTHER ITEM', id: 'To Be Determined'}
+    ];
+
+    var table = document.querySelector('table');
+
+    for (var i = 0; i < inventory.length; i++) {
+        var row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${inventory[i].name}</td>
+            <td>${inventory[i].id}</td>
+            <td id="quantity-${inventory[i].id}">0</td>
+            <td>
+                <button onclick="incrementCount(${inventory[i].id})">+</button>
+                <button onclick="decrementCount(${inventory[i].id})">-</button>
+                <input type="number" id="input-${inventory[i].id}" min="0">
+                <button onclick="addCount(${inventory[i].id})">Add</button>
+            </td>
+        `;
+        table.appendChild(row);
+    }
+</script>
+</body>
+</html>

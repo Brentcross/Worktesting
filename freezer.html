@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="grid-container" class="grid-container"></div>
+
+    <script>
+        var container = document.getElementById('grid-container');
+        for (var i = 1; i <= 16; i++) {
+            var gridItem = document.createElement('div');
+            gridItem.className = 'grid-item';
+
+            gridItem.innerHTML = `
+                <label for="product-name-${i}">Product Name:</label><br>
+                <input type="text" id="product-name-${i}" name="product-name-${i}"><br>
+                <label for="item-number-${i}">Item Number:</label><br>
+                <input type="text" id="item-number-${i}" name="item-number-${i}"><br>
+                <label for="quantity-${i}">Quantity:</label><br>
+                <input type="text" id="quantity-${i}" name="quantity-${i}">
+                `;
+
+            container.appendChild(gridItem);
+        }
+    </script>
+</body>
+</html>
